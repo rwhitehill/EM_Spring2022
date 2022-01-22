@@ -4,7 +4,7 @@
 \usepackage{amsmath,mathtools}
 \usepackage{physics,siunitx}
 \usepackage{graphicx,float}
-\usepackage{tikz}
+\usepackage{tikz,empheq}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
 
@@ -32,6 +32,11 @@
 \newcommand{\frefs}[2]{Figs.~\ref{fig:#1}--\ref{fig:#2}}
 \newcommand{\tref}[1]{Table~\ref{tab:#1}}
 \newcommand{\trefs}[2]{Table~(\ref{tab:#1})--(\ref{tab:#2})}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
 
 \begin{document}
 
