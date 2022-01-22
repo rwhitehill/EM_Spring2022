@@ -10,7 +10,7 @@
 
 \pagestyle{fancy}
 \lhead{Richard Whitehill}
-\chead{PHYS 631 -- HW A}
+\chead{PHYS 631 -- HW \#}
 \rhead{DATE}
 \cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
 
@@ -35,7 +35,7 @@
 
 \begin{document}
 
-f
+Text goes here.
 
 
 \end{document}
