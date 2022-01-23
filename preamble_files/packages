@@ -1,0 +1,12 @@
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage[arrowdel]{physics}
+\usepackage{siunitx}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tikz}
+\usepackage{empheq}
+\usepackage{fancyhdr}
+\usepackage{lastpage}

@@ -1,0 +1,2 @@
+\newcommand{\sif}[1]{\si[per-mode=fraction]{#1}}
+\newcommand{\sis}[1]{\si[per-mode=symbol]{#1}}
