@@ -23,6 +23,10 @@
 \newcommand{\sif}[1]{\si[per-mode=fraction]{#1}}
 \newcommand{\sis}[1]{\si[per-mode=symbol]{#1}}
 
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+
 \newcommand{\bef}{\begin{figure}[h!]\centering}
 \newcommand{\eef}{\end{figure}}
 

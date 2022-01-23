@@ -1,0 +1,143 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,mathtools}
+\usepackage{physics,siunitx}
+\usepackage{graphicx,float}
+\usepackage{tikz,empheq}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW B}
+\rhead{01/25/2022}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\usepackage{calligra}
+\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
+\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\script}[1]{\ensuremath{\mathcalligra{#1}}}
+\newcommand{\scriptr}{\script{r}}
+
+\newcommand{\sif}[1]{\si[per-mode=fraction]{#1}}
+\newcommand{\sis}[1]{\si[per-mode=symbol]{#1}}
+
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\zhat}{\hat{z}}
+\newcommand{\del}{\vec{\nabla}}
+
+\newcommand{\bef}{\begin{figure}[h!]\centering}
+\newcommand{\eef}{\end{figure}}
+
+\newcommand{\eref}[1]{Eq.~(\ref{eq:#1})}
+\newcommand{\erefs}[2]{Eqs.~(\ref{eq:#1})--(\ref{eq:#2})}
+\newcommand{\fref}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\frefs}[2]{Figs.~\ref{fig:#1}--\ref{fig:#2}}
+\newcommand{\tref}[1]{Table~\ref{tab:#1}}
+\newcommand{\trefs}[2]{Table~(\ref{tab:#1})--(\ref{tab:#2})}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{1.15}{Calculate the divergence of the following vector functions.}
+
+(a) $\vec{v}_a = x^2\xhat + 3xz^2\yhat - 2xz\zhat$
+\begin{align*}
+\del \cdot \vec{v}_a = \frac{\partial}{\partial x}\qty(x^2) + \frac{\partial}{\partial y}\qty(3xz^2) + \frac{\partial}{\partial z}\qty(-2xz) = 2x - 2x
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+\del \cdot \vec{v}_a = 0
+\end{empheq}
+
+(b) $\vec{v}_b = xy\xhat + 2yz\yhat + 3zx\zhat$
+\begin{empheq}[box=\fbox]{align*}
+\del \cdot \vec{v}_b = y + 2z + 3x
+\end{empheq}
+
+(c) $\vec{v}_c = y^2\xhat + \qty(2xy + z^2)\yhat + 2yz\zhat$
+\begin{empheq}[box=\fbox]{align*}
+\del \cdot \vec{v}_c = 2\qty(x+y)
+\end{empheq}
+
+\prob{1.18}{Calculate the curl of the following vector functions. *}
+
+(a) $\vec{v}_a = x^2\xhat + 3xz^2\yhat - 2xz\zhat$
+\begin{align*}
+\del \times \vec{v}_a = 
+\begin{vmatrix}
+\xhat & \yhat & \zhat \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+x^2 & 3xz^2 & -2xz
+\end{vmatrix}
+&=
+\qty[\frac{\partial}{\partial y}\qty(-2xz) - \frac{\partial}{\partial z}\qty(3xz^2)]\xhat \\
+&+ \qty[\frac{\partial}{\partial z}\qty(x^2) - \frac{\partial}{\partial x}\qty(-2xz)]\yhat \\
+&+ \qty[\frac{\partial}{\partial x}\qty(3xz^2) - \frac{\partial}{\partial y}\qty(x^2)]
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+\del \times \vec{v}_a = -6xz\xhat + 2z\yhat + 3z^2\zhat
+\end{empheq}
+
+(b) $\vec{v}_b = xy\xhat + 2yz\yhat + 3zx\zhat$
+\begin{align*}
+\del \times \vec{v}_b = 
+\begin{vmatrix}
+\xhat & \yhat & \zhat \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+xy & 2yz & -3zx
+\end{vmatrix}
+&=
+\qty[\frac{\partial}{\partial y}\qty(3zx) - \frac{\partial}{\partial z}\qty(2yz)]\xhat \\
+&+ \qty[\frac{\partial}{\partial z}\qty(xy) - \frac{\partial}{\partial x}\qty(3zx)]\yhat \\
+&+ \qty[\frac{\partial}{\partial x}\qty(2yz) - \frac{\partial}{\partial y}\qty(xy)]
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+\del \cdot \vec{v}_b = -2y\xhat - 3z\yhat - x\zhat
+\end{empheq}
+
+(c) $\vec{v}_c = y^2\xhat + \qty(2xy + z^2)\yhat + 2yz\zhat$
+\begin{align*}
+\del \times \vec{v}_c = 
+\begin{vmatrix}
+\xhat & \yhat & \zhat \\
+\frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\
+y^2 & \qty(2xy + z^2) & 2yz
+\end{vmatrix}
+&=
+\qty[\frac{\partial}{\partial y}\qty(2yz) - \frac{\partial}{\partial z}\qty(2xy + z^2)]\xhat \\
+&+ \qty[\frac{\partial}{\partial z}\qty(y^2) - \frac{\partial}{\partial x}\qty(2yz)]\yhat \\
+&+ \qty[\frac{\partial}{\partial x}\qty(2xy + z^2) - \frac{\partial}{\partial y}\qty(y^2)]
+\end{align*}
+\begin{empheq}[box=\fbox]{align*}
+\del \cdot \vec{v}_c = 0
+\end{empheq}
+
+\prob{1.26}{Calculate the Laplacian of the following scalar functions. *}
+
+(a) $T_a = x^2 + 2xy + 3z + 4$ 
+\begin{empheq}[box=\fbox]{align*}
+\del^2T_a = \qty(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2})T_a = (2) + (0) + (0) = 2
+\end{empheq}
+
+(b) $T_b = \sin{x}\sin{y}\sin{z}$
+\begin{empheq}[box=\fbox]{align*}
+\del^2T_b = -\sin{x}\sin{y}\sin{z} - \sin{x}\sin{y}\sin{z} - \sin{x}\sin{y}\sin{z} = -3T_b
+\end{empheq}
+
+(c) $T_c = e^{-5x}\sin{4y}\cos{3z}$
+\begin{empheq}[box=\fbox]{align*}
+\del^2T_c = 25T_c - 16T_c - 9T_c = 0
+\end{empheq}
+
+(d) $\vec{v} = x^2\xhat + 3xz^2\yhat - 2xz\zhat$
+\begin{empheq}[box=\fbox]{align*}
+\del^2\vec{v} = \qty(\del^2 x^2)\xhat + \qty(\del^2 3xz^2)\yhat - \qty(\del^2 2xz)\zhat = 2\xhat + 6x\yhat
+\end{empheq}
+
+\end{document}
