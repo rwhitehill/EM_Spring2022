@@ -1,26 +1,17 @@
 \documentclass[12pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,mathtools}
-\usepackage{physics,siunitx}
-\usepackage{graphicx,float}
-\usepackage{tikz,empheq}
-\usepackage{fancyhdr}
-\usepackage{lastpage}
 
-\pagestyle{fancy}
-\lhead{Richard Whitehill}
-\chead{PHYS 631 -- HW \#}
-\rhead{DATE}
-\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
-
+\input{../../preamble_files/packages}
 \input{../../preamble_files/scriptr}
 \input{../../preamble_files/siunits}
 \input{../../preamble_files/vectors}
 \input{../../preamble_files/figures}
 \input{../../preamble_files/references}
 
-\newcommand{\prob}[2]{\textbf{#1)} #2}
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW \#}
+\rhead{DATE}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
 
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
