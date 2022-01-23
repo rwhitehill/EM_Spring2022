@@ -13,6 +13,8 @@
 \rhead{DATE}
 \cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
 
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
 \setlength{\parskip}{\baselineskip}
 \setlength{\parindent}{0pt}
 
