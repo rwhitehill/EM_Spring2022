@@ -56,12 +56,12 @@ and finally that
 
 Observer that
 \begin{align*}
-\Lap T(r,\theta,\phi) &= \frac{1}{r^2}\frac{\partial}{\partial r}\qty(r^2\frac{\partial T}{\partial r}) + \frac{1}{r^2\sin{\theta}}\frac{\partial}{\partial \theta}\qty(\sin{\theta}\frac{\partial T}{\partial \theta}) + \frac{1}{r^2\sin^2{\theta}}\frac{\partial^2 T}{\partial \phi^2} \\
+\laplacian T(r,\theta,\phi) &= \frac{1}{r^2}\frac{\partial}{\partial r}\qty(r^2\frac{\partial T}{\partial r}) + \frac{1}{r^2\sin{\theta}}\frac{\partial}{\partial \theta}\qty(\sin{\theta}\frac{\partial T}{\partial \theta}) + \frac{1}{r^2\sin^2{\theta}}\frac{\partial^2 T}{\partial \phi^2} \\
 &= \frac{1}{r^2}\frac{\partial}{\partial r}\qty(r^2)\qty(\cos{\theta} + \sin{\theta}\cos{\phi}) + \frac{1}{r\sin{\theta}}\frac{\partial}{\partial \theta}\qty(-\sin^2{\theta}\cos{\theta}\sin{\theta}\cos{\phi}) + \frac{1}{r^2\sin^2{\theta}}\qty(-\cos{\phi}) \\
 &= \frac{2\qty(\cos{\theta} + \sin{\theta}\cos{\phi})}{r} + \frac{-\sin^2{\theta}\cos{\phi} - 2\sin{\theta}\cos{\theta} + \cos^2{\theta}\cos{\phi}}{r\sin{\theta}} - \frac{\cos{\phi}}{r\sin{\theta}}
 \end{align*}
 \begin{empheq}[box=\fbox]{align*}
-\Lap T = 0
+\laplacian T = 0
 \end{empheq}
 
 In Cartesian coordinates 
@@ -70,14 +70,14 @@ T = \sqrt{x^2 + y^2 + z^2}\qty(\frac{z}{\sqrt{x^2 + y^2 + z^2}} + \frac{\sqrt{x^
 \end{align*}
 Clearly, then
 \begin{empheq}[box=\fbox]{align*}
-\Lap T = 0
+\laplacian T = 0
 \end{empheq}
 
-The gradient theorem states $\int_{C} \del T \cdot \dd \vec{l} = T(B) - T(A)$, and the path $C$ is shown below.
+The gradient theorem states $\int_{C} \grad T \cdot \dd \vec{l} = T(B) - T(A)$, and the path $C$ is shown below.
 \bef
 \includegraphics[scale=1]{./fig1.png}
 \eef
-Note that $C = C_1 + C_2 + C_3$, so $\int_{C} = \int_{C_1} + \int_{C_2} + \int_{C_3}$, and $\del T = \frac{\partial T}{\partial r}\rhat + \frac{1}{r}\frac{\partial T}{\partial \theta}\thhat + \frac{1}{r\sin{\theta}}\frac{\partial T}{\partial \phi}\phihat = \qty(\cos{\theta} + \sin{\theta}\cos{\phi})\rhat + \qty(-\sin{\theta} + \cos{\theta}\cos{\phi})\thhat - \sin{\phi}\phihat$.
+Note that $C = C_1 + C_2 + C_3$, so $\int_{C} = \int_{C_1} + \int_{C_2} + \int_{C_3}$, and $\grad T = \frac{\partial T}{\partial r}\rhat + \frac{1}{r}\frac{\partial T}{\partial \theta}\thhat + \frac{1}{r\sin{\theta}}\frac{\partial T}{\partial \phi}\phihat = \qty(\cos{\theta} + \sin{\theta}\cos{\phi})\rhat + \qty(-\sin{\theta} + \cos{\theta}\cos{\phi})\thhat - \sin{\phi}\phihat$.
 Hence, since $\dd \vec{l} = \rhat \dd{r} + \thhat r \dd{\theta} + \phihat r\sin{\theta}\dd{\phi}$.
 Then,
 \begin{align*}
