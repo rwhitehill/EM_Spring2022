@@ -1,4 +1,6 @@
 \usepackage[utf8]{inputenc}
+\usepackage{xparse}
+\usepackage{xifthen}
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath}
 \usepackage{mathtools}
