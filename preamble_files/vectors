@@ -1,4 +1,4 @@
-% Basic unit vectors
+% Common vectors
 \newcommand{\xhat}{\hat{x}}
 \newcommand{\yhat}{\hat{y}}
 \newcommand{\zhat}{\hat{z}}
@@ -6,6 +6,8 @@
 \newcommand{\rhat}{\hat{r}}
 \newcommand{\thhat}{\hat{\theta}}
 \newcommand{\phihat}{\hat{\phi}}
+\newcommand{\rvec}{\vec{r}}
+\newcommand{\srvec}{\vec{\scriptr}}
 
 % Vector Definitions
 \NewDocumentCommand{\cvec}{ O{} O{} O{} }{
