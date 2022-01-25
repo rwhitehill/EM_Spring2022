@@ -1,13 +1,13 @@
 % Common vectors
-\newcommand{\xhat}{\hat{x}}
-\newcommand{\yhat}{\hat{y}}
-\newcommand{\zhat}{\hat{z}}
-\newcommand{\shat}{\hat{s}}
-\newcommand{\rhat}{\hat{r}}
-\newcommand{\thhat}{\hat{\theta}}
-\newcommand{\phihat}{\hat{\phi}}
-\newcommand{\rvec}{\vec{r}}
-\newcommand{\srvec}{\vec{\scriptr}}
+\newcommand{\xhat}{\vu*{x}}
+\newcommand{\yhat}{\vu*{y}}
+\newcommand{\zhat}{\vu*{z}}
+\newcommand{\shat}{\vu*{s}}
+\newcommand{\rhat}{\vu*{r}}
+\newcommand{\thhat}{\vu*{\theta}}
+\newcommand{\phihat}{\vu*{\phi}}
+\newcommand{\rvec}{\va*{r}}
+\newcommand{\srvec}{\va*{\scriptr}}
 
 % Vector Definitions
 \NewDocumentCommand{\cvec}{ O{} O{} O{} }{
@@ -37,6 +37,6 @@
 \newcommand{\dlcyl}{\cylvec[\dd{s}][s\dd{\phi}][\dd{z}]}
 \newcommand{\dlsph}{\sphvec[\dd{r}][r\dd{\theta}][r\sin{\theta}\dd{\phi}]}
 % gradient
-\NewDocumentCommand{\gradc}{ O{} }{\cvec[\dv{#1}{x}][\dv{#1}{y}][\dv{#1}{z}]}
-\NewDocumentCommand{\gradcyl}{ O{} }{\cylvec[\dv{#1}{s}][\frac{1}{s}\dv{#1}{\phi}][\dv{#1}{z}]}
-\NewDocumentCommand{\gradsph}{ O{} }{\sphvec[\dv{#1}{r}][\frac{1}{r}\dv{#1}{\theta}][\frac{1}{r\sin{\theta}}\dv{#1}{\phi}]}
+\NewDocumentCommand{\gradc}{ O{} }{\ifthenelse{\isempty{#1}}{\xhat\pdv{x} + \yhat\pdv{y} + \zhat\pdv{z}}{\cvec[\pdv{#1}{x}][\pdv{#1}{y}][\pdv{#1}{z}]}}
+\NewDocumentCommand{\gradcyl}{ O{} }{\ifthenelse{\isempty{#1}}{\shat\pdv{s} + \phihat\frac{1}{s}\pdv{\phi} + \zhat\pdv{z}}{\cylvec[\pdv{#1}{s}][\frac{1}{s}\pdv{#1}{\phi}][\pdv{#1}{z}]}}
+\NewDocumentCommand{\gradsph}{ O{} }{\ifthenelse{\isempty{#1}}{\rhat\pdv{r} + \thhat\frac{1}{r}\pdv{\theta} + \phihat\frac{1}{r\sin{\theta}}\pdv{\phi}}{\sphvec[\pdv{#1}{r}][\frac{1}{r}\pdv{#1}{\theta}][\frac{1}{r\sin{\theta}}\pdv{#1}{\phi}]}}
