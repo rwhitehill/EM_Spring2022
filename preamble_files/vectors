@@ -40,3 +40,7 @@
 \NewDocumentCommand{\gradc}{ O{} }{\ifthenelse{\isempty{#1}}{\xhat\pdv{x} + \yhat\pdv{y} + \zhat\pdv{z}}{\cvec[\pdv{#1}{x}][\pdv{#1}{y}][\pdv{#1}{z}]}}
 \NewDocumentCommand{\gradcyl}{ O{} }{\ifthenelse{\isempty{#1}}{\shat\pdv{s} + \phihat\frac{1}{s}\pdv{\phi} + \zhat\pdv{z}}{\cylvec[\pdv{#1}{s}][\frac{1}{s}\pdv{#1}{\phi}][\pdv{#1}{z}]}}
 \NewDocumentCommand{\gradsph}{ O{} }{\ifthenelse{\isempty{#1}}{\rhat\pdv{r} + \thhat\frac{1}{r}\pdv{\theta} + \phihat\frac{1}{r\sin{\theta}}\pdv{\phi}}{\sphvec[\pdv{#1}{r}][\frac{1}{r}\pdv{#1}{\theta}][\frac{1}{r\sin{\theta}}\pdv{#1}{\phi}]}}
+% divergence
+\NewDocumentCommand{\divc}{mgg}{\IfNoValueTF{#2}{\cvec[\pdv{#1_x}{x}][\pdv{#1_y}{y}][\pdv{#1_z}{z}]}{\cvec[\pdv{x}\qty(#1)][\pdv{y}\qty(#2)][\pdv{z}\qty(#3)]}}
+\NewDocumentCommand{\divcyl}{mgg}{\IfNoValueTF{#2}{\cylvec[\frac{1}{s}\pdv{\qty(s#1_s)}{s}][\frac{1}{s}\pdv{#1_\phi}{\phi}][\pdv{#1_z}{z}]}{\cylvec[\frac{1}{s}\pdv{s}\qty(s\qty(#1))][\frac{1}{s}\pdv{\phi}\qty(#2)][\pdv{z}\qty(#3)]}}
+\NewDocumentCommand{\divsph}{mgg}{\IfNoValueTF{#2}{\sphvec[\frac{1}{r^2}\pdv{\qty(r^2#1_r)}{r}][\frac{1}{r\sin{\theta}}\pdv{\qty(\sin{\theta}#1_\theta)}{\theta}][\frac{1}{r\sin{\theta}}\pdv{#1_\phi}{\phi}]}{\sphvec[\frac{1}{r^2}\pdv{r}\qty(r^2\qty(#1))][\frac{1}{r\sin{\theta}}\pdv{\theta}\qty(\sin{\theta}\qty(#2))][\frac{1}{r\sin{\theta}}\pdv{\phi}\qty(#3)]}}

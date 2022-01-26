@@ -1,0 +1,32 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+
+\NewDocumentCommand{\divc}{mgg}{\IfNoValueTF{#2}{\cvec[\pdv{#1_x}{x}][\pdv{#1_y}{y}][\pdv{#1_z}{z}]}{\cvec[\pdv{x}\qty(#1)][\pdv{y}\qty(#2)][\pdv{z}\qty(#3)]}}
+\NewDocumentCommand{\divcyl}{mgg}{\IfNoValueTF{#2}{\cylvec[\frac{1}{s}\pdv{\qty(s#1_s)}{s}][\frac{1}{s}\pdv{#1_\phi}{\phi}][\pdv{#1_z}{z}]}{\cylvec[\frac{1}{s}\pdv{s}\qty(s\qty(#1))][\frac{1}{s}\pdv{\phi}\qty(#2)][\pdv{z}\qty(#3)]}}
+\NewDocumentCommand{\divsph}{mgg}{\IfNoValueTF{#2}{\sphvec[\frac{1}{r^2}\pdv{\qty(r^2#1_r)}{r}][\frac{1}{r\sin{\theta}}\pdv{\qty(\sin{\theta}#1_\theta)}{\theta}][\frac{1}{r\sin{\theta}}\pdv{#1_\phi}{\phi}]}{\sphvec[\frac{1}{r^2}\pdv{r}\qty(r^2\qty(#1))][\frac{1}{r\sin{\theta}}\pdv{\theta}\qty(\sin{\theta}\qty(#2))][\frac{1}{r\sin{\theta}}\pdv{\phi}\qty(#3)]}}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW \#}
+\rhead{DATE}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{align*}
+\divsph{u}{v}{w}
+\end{align*}
+
+
+\end{document}
