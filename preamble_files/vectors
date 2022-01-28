@@ -7,8 +7,6 @@
 \newcommand{\thhat}{\vu*{\theta}}
 \newcommand{\phihat}{\vu*{\phi}}
 \newcommand{\rvec}{\va*{r}}
-\newcommand{\srhat}{\vu*{\scriptr}}
-\newcommand{\srvec}{\va*{\scriptr}}
 
 % Vector Definitions
 \NewDocumentCommand{\cvec}{ O{} O{} O{} }{

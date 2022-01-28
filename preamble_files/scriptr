@@ -1,5 +1,3 @@
-\usepackage{calligra}
-\DeclareMathAlphabet{\mathcalligra}{T1}{calligra}{m}{n}
-\DeclareFontShape{T1}{calligra}{m}{n}{<->s*[2.2]callig15}{}\newcommand{\scripty}[1]{\ensuremath{\mathcalligra{#1}}}
-\newcommand{\script}[1]{\ensuremath{\mathcalligra{#1}}}
-\newcommand{\scriptr}{\script{r}}
+\def\scriptr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{../../preamble_files/ScriptR}}$}}}
+\def\srhat{\vu*{\scriptr}}
+\def\srvec{\va*{\scriptr}}
