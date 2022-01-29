@@ -1,3 +1,5 @@
-\def\scriptr{{\mbox{$\resizebox{.16in}{.08in}{\includegraphics{../../preamble_files/ScriptR}}$}}}
+\def\scriptr{{\mbox{$\resizebox{.09in}{.08in}{\includegraphics[trim= 1em 0 10em 0, clip]{../../preamble_files/ScriptR}}$}}}
+\def\rcurs{{\mbox{$\resizebox{.09in}{.08in}{\includegraphics[trim= 1em 0 14em 0, clip]{../../preamble_files/ScriptR}}$}}}
+
 \def\srhat{\vu*{\scriptr}}
-\def\srvec{\va*{\scriptr}}
+\def\srvec{\va*{\rcurs}}
