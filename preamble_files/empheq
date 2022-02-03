@@ -1,5 +1,5 @@
 \NewDocumentEnvironment{eqbox}{b}{}{
-  \begin{empheq}[box=\fbox]{align}
+  \begin{empheq}[box=\fbox]{align*}
     #1
   \end{empheq}
 }
