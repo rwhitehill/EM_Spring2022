@@ -6,6 +6,7 @@
 \input{../../preamble_files/vectors}
 \input{../../preamble_files/figures}
 \input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
 
 \pagestyle{fancy}
 \lhead{Richard Whitehill}
