@@ -10,8 +10,8 @@
 
 \pagestyle{fancy}
 \lhead{Richard Whitehill}
-\chead{PHYS 631 -- HW \#}
-\rhead{DATE}
+\chead{PHYS 631 -- HW F}
+\rhead{02/10/22}
 \cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
 
 \newcommand{\prob}[2]{\textbf{#1)} #2}
@@ -56,7 +56,7 @@ E = \frac{k}{\epsilon_0}\begin{cases}
 
 Then, the potential at the center, using infinity as our reference, is
 \begin{align*}
-V &= -\int_{0}^{\infty} E \dd{r} = -\frac{k}{\epsilon_0}\qty[ \int_{0}^{\infty} 0\dd{r} + \int_{a}^{b} \frac{r-a}{r^2} \dd{r} + \int_{b}^{\infty} \frac{b-a}{r^2} \dd{r}] \\
+V &= -\int_{0}^{\infty} E \dd{r} = -\frac{k}{\epsilon_0}\qty[ \int_{0}^{a} 0\dd{r} + \int_{a}^{b} \frac{r-a}{r^2} \dd{r} + \int_{b}^{\infty} \frac{b-a}{r^2} \dd{r}] \\
 &= -\qty[\ln(b) + \frac{a}{b} - \ln(a) - 1 + \frac{b-a}{b}]
 \end{align*}
 \begin{eqbox}
