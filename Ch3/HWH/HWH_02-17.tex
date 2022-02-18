@@ -1,0 +1,95 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW H}
+\rhead{02/17/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{3.1}{Find the average potential over a spherical surface of radius $R$ due to a point charge $q$ located inside. Show that, in general, 
+\[
+\langle V \rangle = V_{\rm center} + \frac{1}{4\pi\epsilon_0R}
+\]
+where $V_{\rm center}$ is the potential at the center due to all the external chages, and $Q_{\rm enc}$ is the total enclosed charge.}
+
+The average potential at the center of a sphere of radius $R$ is given as
+\begin{align*}
+\langle V \rangle = \frac{1}{4\pi R^2}\int_{0}^{2\pi}\int_{0}^{\pi} \frac{q}{4\pi\epsilon_0}\frac{R^2\sin{\theta}}{\sqrt{r^2 + R^2 - 2rR\cos{\theta}}}\dd{\theta}\dd{\phi}
+\end{align*}
+This is a common integral and has result
+\begin{align*}
+\langle V \rangle = \frac{q}{4\pi\epsilon_0}\frac{1}{2rR}\qty[r+R-\qty|r-R|]
+\end{align*}
+Since we are considering charge inside the sphere $r < R$ and
+\begin{eqbox}
+\langle V \rangle = \frac{1}{4\pi\epsilon_0}\frac{q}{R}
+\end{eqbox}
+
+Suppose we have a collection of charges external to the sphere $q_1,\hdots,q_n$ and a collection of charges internal to the sphere $Q_1,\hdots,Q_m$, then the average potential due to this distrubtion of charge is 
+\begin{align*}
+\langle V \rangle = \sum_{i}^{n} \frac{1}{4\pi\epsilon_0}\frac{q_i}{r_i} + \sum_{i}^{m} \frac{1}{4\pi\epsilon_0}\frac{Q_m}{R} = \sum_{i}^{n} \frac{1}{4\pi\epsilon_0}\frac{q_i}{r_i} + \frac{1}{4\pi\epsilon_0 R}\sum_{i}^{m} Q_m
+\end{align*}
+Notice that the first term in the sum is the total potential at the center of the sphere due to external charges and the sum in the second term is just the total enclosed charge by the sphere. Thus, 
+\begin{eqbox}
+\langle V \rangle = V_{\rm center} + \frac{Q_{\rm enc}}{4\pi\epsilon_0 R}
+\end{eqbox}
+
+\prob{3.8}{}
+
+(a) Using the law of cosines, show that $Eq. 3.17$ can be written as follows:
+\begin{align*}
+V(r,\theta) = \frac{1}{4\pi\epsilon_0}\qty[\frac{q}{\sqrt{r^2+a^2-2ra\cos{\theta}}} - \frac{q}{\sqrt{R^2+\qty(ra/R)^2-2ra\cos{\theta}}}]
+\end{align*}
+where $r$ and $\theta$ are the usual spherical polar coordinates, with the $z$ axis along the line through $q$. In this form it is obvious that $V = 0$ on the sphere, $r = R$.
+
+From Eq. 3.17 we have
+\begin{align*}
+V(\va*{r}) &= \frac{1}{4\pi\epsilon_0}\qty[\frac{q}{\sqrt{r^2 + a^2 - 2ra\cos{\theta}}} - \frac{R}{a}\frac{q}{\sqrt{\qty(R^2/a)^2 + r^2 - 2r\qty(R^2/a)\cos{\theta}}}] \\
+&= \frac{1}{4\pi\epsilon_0}\qty[\frac{q}{\sqrt{r^2 + a^2 - 2ra\cos{\theta}}} - \frac{q}{\sqrt{\qty(a^2/R^2)\qty(R^2/a)^2 + \qty(ra/R)^2 - 2r\qty(R^2/a)\qty(R^2/a)\cos{\theta}}}] \\
+\end{align*}
+\begin{eqbox}
+V(\va*{r}) = \frac{1}{4\pi\epsilon_0}\qty[\frac{q}{\sqrt{r^2+a^2-2ra\cos{\theta}}} - \frac{q}{\sqrt{R^2+\qty(ra/R)^2-2ra\cos{\theta}}}]
+\end{eqbox}
+
+(b) Find the induced surface charge on the sphere, as a function of $\theta$. Integrate this to get the total induced charge. (What should it be?)
+
+The induced surface charge on the sphere is given as
+\begin{eqbox}
+\sigma = -\epsilon_0\pdv{V}{r} = - \frac{q \left(a^2 - R^{2}\right)}{4 \pi R \left[R^{2} + a^2 - 2 R a \cos{\theta}\right]^{3/2}}
+\end{eqbox}
+
+We integrate as follows to find the total induced charge
+\begin{eqbox}
+Q = \int \sigma R^2\dd{\Omega} = -\frac{q}{2a}\qty[a+R - \qty|a-R|] = -\frac{R}{a}q
+\end{eqbox}
+which is exactly the amount of charge we placed inside the sphere when using the method of images.
+
+(c) Calculate the energy of this configuration.
+
+The energy of the configuration is the amount of work done to construct it, which is given as
+\begin{align*}
+W = \frac{1}{2}\int \sigma\delta(r-R)V \dd[3]{\va*{r}} + W_{\rm point}
+\end{align*}
+Notice that the delta function in the integral forces $r = R$, and since the sphere is grounded $V(r=R) = 0$, meaning that the integral is identically zero. This leaves us with the work done to bring the point charge from infinity to $r=a$:
+\begin{eqbox}
+W = \frac{1}{2}qV_{\rm sphere}(a,0,\phi) = \frac{1}{2}q\qty(-\frac{q}{4\pi\epsilon_0}\frac{R}{a^2-R^2}) = -\frac{1}{4\pi\epsilon_0}\frac{q^2R}{2\qty(a^2-R^2)}
+\end{eqbox}
+
+
+
+\end{document}
