@@ -1,0 +1,71 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW \#}
+\rhead{DATE}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{3.15}{A rectangular pipe, running parallel to the $z$-axis (from $-\infty$ to $+\infty$), has three grounded sides, at $y=0$, $y=a$, and $x=0$. The fourth side, at $x=b$, is maintained at a specified potential $V_0(y)$.}
+
+(a) Develop a general formula for the potential inside the pipe.
+
+Notice that Laplace's equation applies inside the pipe:
+\begin{align*}
+\laplacian{V} = \pdv[2]{V}{x} + \pdv[2]{V}{y} = 0
+\end{align*}
+We can solve this by separating the equation in terms of $x$ and $y$. That is $V = X(x)Y(y)$. Since the potential at $x = 0$ and $x = b$ are not the same, we choose that $X'' - k^2X = 0$ and $Y'' + k^2Y = 0$, meaning that we obtain a general solution for $V$ as a superposition of separable solutions:
+\begin{align*}
+V(x,y) = \sum_{n=1}^{\infty} \qty(A_ne^{k_nx} + B_ne^{-k_nx})\qty(C_n\sin(ky) + D_n\cos(kx))
+\end{align*}
+Applying the first three boundary conditions we see that
+\begin{align*}
+V(x,0) = 0 &\Rightarrow D_n = 0 \\
+V(x,a) = 0 &\Rightarrow k_n = \frac{n\pi}{a}~(n=1,2,\hdots) \\
+V(0,0) = 0 &\Rightarrow B_n = -A_n
+\end{align*}
+Thus,
+\begin{align*}
+V(x,y) = \sum_{n=1}^{\infty} C_n\sinh(\frac{n\pi x}{a})\sin(\frac{n\pi y}{a})
+\end{align*}
+Now, we may apply the final boundary condition and use the orthogonality of sine functions to obtain $C_n$.
+\begin{align*}
+V_0(y) &= \sum_{n=1}^{\infty} C_n\sinh(\frac{n\pi b}{a})\sin(\frac{n\pi y}{a}) \\
+\int_{0}^{a} V_0(y)\sin(\frac{m\pi y}{a}) \dd{y} &= \sum_{n=1}^{\infty} C_n\sinh(\frac{n\pi b}{a})\int_{0}^{a} \sin(\frac{m\pi y}{a}) \sin(\frac{n\pi y}{a}) \dd{y} \\
+&= \sum_{n=1}^{\infty}C_n\sinh(\frac{n\pi b}{a})\frac{a}{2}\delta_{nm} = C_m\qty[\frac{a}{2}\sinh(\frac{m\pi b}{a})]
+\end{align*}
+Thus,
+\begin{eqbox}
+V(x,y) &= \sum_{n=1}^{\infty} \sin(\frac{n\pi y}{a})\frac{\sinh(n\pi x/a)}{\sinh(n\pi b/a)}\qty(\frac{2}{a}\int_{0}^{a} V_0(y')\sin(\frac{n\pi y'}{a}) \dd{y'})
+\end{eqbox}
+
+(b) Find the potential explicitly, for the case $V_0(y) = V_0$ (a constant).
+
+If $V_0(y)$ is constant, then we find that
+\begin{align*}
+\frac{2V_0}{a}\int_{0}^{a} \sin(\frac{n\pi y}{a}) \dd{y} = \begin{cases}
+\frac{4V_0}{n\pi} & n=~{\rm odd} \\
+0 & n=~{\rm even},
+\end{cases}
+\end{align*}
+so
+\begin{eqbox}
+V(x,y) &= \frac{4V_0}{\pi}\sum_{n=1}^{\infty} \frac{1}{2n+1}\sin(\frac{(2n+1)\pi y}{a})\frac{\sinh((2n+1)\pi x/a)}{\sinh((2n+1)\pi b/a)}
+\end{eqbox}
+
+\end{document}
