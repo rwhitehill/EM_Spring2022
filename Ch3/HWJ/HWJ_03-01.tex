@@ -21,7 +21,15 @@
 
 \begin{document}
 
-\prob{3.20}{*}
+\prob{3.20}{Suppose the potential $V_{0})(\theta)$ at the surface of a sphere is specified, and there is no charge inside or outside the sphere. Show that the charge density on the sphere is given by
+\begin{align*}
+\sigma_{\theta} = \frac{\epsilon_0}{2R}\sum_{\ell = 0}^{\infty}  \qty(2\ell + 1)^2C_{\ell}P_{\ell}(\cos{\theta})
+\end{align*}
+where 
+\begin{align*}
+C_{\ell} = \int_{0}^{\pi} V_0(\theta)P_{\ell}(\cos{\theta})\sin{\theta}\dd{\theta}
+\end{align*}
+}
 
 In spherical coordinates, the solution to Laplace's equation is given as follows:
 \begin{align*}
@@ -58,8 +66,7 @@ giving
 \sigma(\theta) = \frac{\epsilon_0}{2R}\sum_{\ell = 0}^{\infty} \qty(2\ell + 1)^{2}C_{\ell}P_{\ell}(\cos{\theta})
 \end{eqbox}
 
-\newpage
-\prob{3.25}{*}
+\prob{3.25}{Find the potential outside an infinitely long metal pipe, of radius $R$, placed at right angles to an otherwise uniform electric field $\va{E}_0$. Find the surface charge induced on the pipe.}
 
 The solution to Laplace's equation in cylindrical coordinates (assuming that the problem is invariant under translations in $z$) is
 \begin{align*}
