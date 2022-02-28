@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW J}
+\rhead{03/01/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{3.20}{*}
+
+In spherical coordinates, the solution to Laplace's equation is given as follows:
+\begin{align*}
+V(r,\theta) = \sum_{\ell = 0}^{\infty} P_{\ell}\qty(\cos{\theta})\begin{cases}
+A_{\ell}r^{\ell} & r \leq R \\
+\frac{B_{\ell}}{r^{\ell + 1}} & r \geq R
+\end{cases}
+\end{align*}
+We are given the boundary condition $V(R,\theta) = V_{0}(\theta)$, and we know from previous work that $V_{\rm in} = V_{\rm out}$. Applying these gives us
+\begin{align*}
+V_{0}(\theta) = \sum_{\ell = 0}^{\infty} A_{\ell}R^{\ell}P_{\ell}\qty(\cos{\theta}) = \sum_{\ell = 0}^{\infty} \frac{B_{\ell}}{R^{\ell + 1}}P_{\ell}(\cos{\theta})
+\end{align*}
+From this it is clear that $B_{\ell} = A_{\ell}R^{2\ell + 1}$. Using the orthogonality of the Legendre polynomials, we see that
+\begin{align*}
+\int_{0}^{\pi} V_{0}(\theta)P_{\ell'}(\cos{\theta}) \dd{(\cos{\theta})} = \sum_{\ell = 0}^{\infty} A_{\ell}R^{\ell}\int_{0}^{\pi} P_{\ell'}(\cos{\theta})P_{\ell}(\cos{\theta}) \dd{(\cos{\theta})} = \sum_{\ell = 0}^{\infty} A_{\ell}R^{\ell} \frac{2}{2\ell + 1}\delta_{\ell\ell'}
+\end{align*}
+Thus
+\begin{align*}
+A_{\ell} &= \frac{2\ell + 1}{2}\frac{1}{R^{\ell}}C_{\ell} \\
+B_{\ell} &= \frac{2\ell + 1}{2}R^{\ell + 1}C_{\ell}
+\end{align*}
+where
+\begin{align*}
+C_{\ell} = \int_{0}^{\pi} V_0(\theta)P_{\ell}(\cos{\theta}) \dd{(\cos{\theta})}
+\end{align*}
+We can solve for the charge density on the surface of the sphere using another boundary condition
+\begin{align*}
+\sigma(\theta) &= -\epsilon_0\qty[\pdv{V_{\rm in}}{r} - \pdv{V_{\rm out}}{r}]_{r=R} \\
+ &= -\epsilon_0\sum_{\ell = 0}^{\infty} \qty[-\qty(\ell + 1)\frac{B_{\ell}}{R^{\ell + 2}} - \ell A_{\ell}R^{\ell - 1}]P_{\ell}(\cos{\theta}) \\
+&= \epsilon_0\sum_{\ell = 0}^{\infty} \qty[\qty(\ell + 1)\frac{1}{R^{\ell + 2}}R^{\ell+1} - \ell\frac{1}{R^{\ell}}R^{\ell - 1}]\frac{2\ell + 1}{2}C_{\ell}P_{\ell}(\cos{\theta}) \\
+\end{align*}
+giving
+\begin{eqbox}
+\sigma(\theta) = \frac{\epsilon_0}{2R}\sum_{\ell = 0}^{\infty} \qty(2\ell + 1)^{2}C_{\ell}P_{\ell}(\cos{\theta})
+\end{eqbox}
+
+\newpage
+\prob{3.25}{*}
+
+The solution to Laplace's equation in cylindrical coordinates (assuming that the problem is invariant under translations in $z$) is
+\begin{align*}
+V(s,\phi) = A_0\ln{s} + B_0 + \sum_{n=1}^{\infty} \qty(A_ns^n + B_ns^{-n})\qty(C_n\sin(n\phi) + D_n\cos(n\phi))
+\end{align*}
+We choose to point the ``uniform'' electric field along the $x$ direction such that $\vec{E} = E_{0}\xhat$ far away from the pipe. For this problem then, we have two relevant boundary conditions:
+\begin{enumerate}
+\item $V(R,\phi) = 0$ (we are free to choose a valid reference point)
+\item $V(s \gg R, \phi) = -E_0x = -E_{0}s\cos{\phi}$ 
+\end{enumerate}
+Note that the constant term from the potential due to the external field is zero since at $\phi = \pi/2,3\pi/2$ the potential vanishes. Applying the first boundary condition gives
+\begin{align*}
+V(R,\phi) &= A_{0}\ln{R} + B_0 + \sum_{n=1}^{\infty} \qty(A_nR^n + B_nR^{-n})\qty(C_n\sin(n\phi) + D_n\cos(n\phi)) = 0 \\
+&\Rightarrow B_{0} = -A_{0}\ln{R} \text{ and } B_n = -A_nR^{2n} \\
+V(r,\phi) &= A_0\ln(\frac{s}{R})  + \sum_{n=1}^{\infty} \qty(s^n + R^{2n}s^{-n})\qty(C_n\sin(n\phi) + D_n\cos(n\phi))
+\end{align*}
+Now, applying the second boundary condition we see that $A_0 = 0$ (since we need the $\ln$ behavior to vanish at large $s$) and $s^{-n} \rightarrow 0$, leaving us with
+\begin{align*}
+V(s \gg R, \phi) = \sum_{n=1}^{\infty} \qty(C_ns^n\sin(n\phi) + D_ns^n\cos(n\phi)) = -E_0s\cos{\phi}
+\end{align*}
+Matching terms we get that $C_n = 0$, $D_1 = -E_0$, and $D_{n \not= 1} = 0$. This gives us
+\begin{eqbox}
+V(s,\phi) = E_{0}\cos{\theta}\qty(\frac{R^2}{s} - s)
+\end{eqbox}
+Finally, we can find the surface charge density as
+\begin{eqbox}
+\sigma(\phi) = -\epsilon_0\pdv{V}{s}\Big|_{s=R} = 2\epsilon_0E_0\cos{\phi}
+\end{eqbox}
+
+
+\end{document}
