@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW K}
+\rhead{03/03/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{3.29}{Four particles (one of charge $q$, one of charge $3q$, and two of charge $-2q$) are placed as shown in Fig. 3.31, each a distance $a$ from the origin. Find a simple approximate formula for the potential, valid at points far from the origin. (Express you answer in spherical coordinates.)}
+
+We consider the multipole expansion and take the first nonzero term as the potential far from the origin (i.e. $r \gg a$). Obviously, the monopole moment is zero since the sum of the charges in the configuration is zero. The dipole contribution however is given as
+\begin{align*}
+V_{\rm dip} = \frac{1}{4\pi\epsilon_0}\frac{\va{p} \vdot \rhat}{r^2}
+\end{align*}
+and the dipole moment is
+\begin{align*}
+\va{p} = 3qa\zhat - qa\zhat + 2qa\yhat - 2qa\yhat = 2qa\zhat
+\end{align*}
+Thus,
+\begin{eqbox}
+V \approx V_{\rm dip} = \frac{1}{4\pi\epsilon_0}\frac{2qa \zhat \vdot \rhat}{r^2} = \frac{1}{4\pi\epsilon_0}\frac{2qa\cos{\theta}}{r^2}
+\end{eqbox}
+
+\prob{3.36}{Show that the electric field of a (perfect) dipole can be written in the coordinate-free form
+\begin{align*}
+\va{E}_{\rm dip} = \frac{1}{4\pi\epsilon_0}\frac{1}{r^3}\qty[3\qty(\va{p} \vdot \rhat)\rhat - \va{p}]
+\end{align*}
+}
+The potential of a perfect dipole is given as
+\begin{align*}
+V_{\rm dip} = \frac{\va{p} \vdot \rhat}{4\pi\epsilon_0 r^2}
+\end{align*}
+We can find the electric field by taking the gradient as follows:
+\begin{align*}
+\va{E}_{\rm dip} &= -\grad{V_{\rm dip}} = -\frac{1}{4\pi\epsilon_0}\qty[\pdv{r}\qty(\frac{\va{p} \vdot \rhat}{r^2})\rhat + \frac{1}{r}\pdv{\theta}\qty(\frac{\va{p} \vdot \rhat}{r^2})\thhat + \frac{1}{r\sin{\theta}}\pdv{\phi}\qty(\frac{\va{p} \vdot \rhat}{r^2})\phihat] \\
+&= -\frac{1}{4\pi\epsilon_0}\qty[\frac{1}{r^2}\pdv{r}(\va{p} \vdot \rhat)\rhat - 2\frac{\va{p} \vdot \rhat}{r^3}\rhat + \frac{1}{r^3}\pdv{\theta}\qty(\va{p} \vdot \rhat)\thhat + \frac{1}{r^3}\pdv{\phi}\qty(\va{p} \vdot \rhat)\phihat]
+\end{align*}
+Recall that
+\begin{align*}
+\rhat = \sin{\theta}\cos{\phi}\xhat + \sin{\theta}\sin{\phi}\yhat + \cos{\theta}\zhat
+\end{align*}
+so
+\begin{align*}
+\pdv{\rhat}{r} &= 0 \\
+\pdv{\rhat}{\theta} &= \cos{\theta}\cos{\phi}\xhat + \cos{\theta}\sin{\phi}\yhat - \sin{\theta}\zhat = \thhat \\
+\pdv{\rhat}{\phi} &= -\sin{\theta}\sin{\phi}\xhat + \sin{\theta}\cos{\phi}\yhat = \phihat
+\end{align*}
+Notice that the dipole moment is constant in space, which implies that
+\begin{align*}
+\va{E}_{\rm dip} &= \frac{1}{4\pi\epsilon_0 r^3}\qty[2(\va{p}\vdot\rhat)\rhat - (\va{p}\vdot\thhat)\thhat - (\va{p}\vdot\phihat)\phihat] \\
+&= \frac{1}{4\pi\epsilon_0 r^3}\qty[3(\va{p}\vdot\rhat)\rhat - (\va{p}\vdot\rhat)\rhat - (\va{p}\vdot\thhat)\thhat - (\va{p}\vdot\phihat)\phihat] \\
+\end{align*}
+In the last line we simply added zero (added and subtracted the same term) and noticed the the last three terms are just the components of the dipole moment in spherical coordinates, which is simply the dipole moment vector itself. That is,
+\begin{eqbox}
+\va{E}_{\rm dip} = \frac{1}{4\pi\epsilon_0}\frac{1}{r^3}\qty[3\qty(\va{p}\vdot\rhat) - \va{p}]
+\end{eqbox}
+
+\end{document}
