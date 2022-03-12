@@ -1,0 +1,56 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW L}
+\rhead{03/10/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{4.4}{A point charge $q$ is situated a large distance $r$ from a neutral atom of polarizability $\alpha$. Find the force of attraction between them.}
+
+The charge $q$ serves as the external field which polarizes the neutral atom. The dipole moment of the atom from this field is given as
+\begin{align*}
+p = \alpha\qty(\frac{1}{4\pi\epsilon_0}\frac{q}{r^2})
+\end{align*}
+Thus, we can calculate the field produced by the induced dipole
+\begin{align*}
+E = \frac{1}{4\pi\epsilon_0}\frac{1}{r^3}\qty(\frac{2\alpha q}{4\pi\epsilon_0 r^2})
+\end{align*}
+and the force on $q$ from this field 
+\begin{eqbox}
+F = qE_{\rm atom} = \frac{2\alpha q^2}{4\pi\epsilon_0 r^5}
+\end{eqbox}
+
+\prob{4.6}{A (perfect) dipole $\va{p}$ is situated a distance $z$ above an infinite grounded conducting plane. The dipole makes an angle $\theta$ with the perpendicular to the plane. Find the torque on $\va{p}$. If the dipole is free to rotate, in what orientation will it come to rest?}
+
+The torque on the dipole is given as
+\begin{align*}
+\va{N} = \va{p} \cross \va{E}
+\end{align*}
+We can produce an equivalent set up by placing a mirror dipole on the opposite side of the infinite conducting plane, which gives us the electric field from the plane. That is,
+\begin{align*}
+\va{p} &= p\qty[\cos{\theta}\rhat + \sin{\theta}\thhat] \\
+\va{E} &= \frac{p}{4\pi\epsilon_0(2z)^3}\qty(2\cos{\theta}\rhat + \sin{\theta}\thhat)
+\end{align*}
+Hence, carrying out the cross product and simplifying the result,
+\begin{eqbox}
+\va{N} = -\frac{p^2\sin(2\theta)}{4\pi\epsilon_0\qty(16z^3)}\phihat
+\end{eqbox}
+From this we can see that the dipole ``attempts'' to orient itself parallel to the field. If $-\pi/2 < \theta < \pi/2$ the dipole will point away from the plane. Otherwise the dipole will rotate such that it points towards the plane. 
+
+\end{document}
