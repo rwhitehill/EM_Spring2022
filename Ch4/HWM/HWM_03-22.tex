@@ -1,0 +1,85 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW M}
+\rhead{03/22/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{4.12}{Consider the potential of a uniformly polarized sphere (Ex. 4.2) directly from Eq. 4.9}
+
+Eq. 4.9 tells us that the potential of a configuration which has some polarization is
+\begin{eqnarray}
+V(\va*{r}) = \frac{1}{4\pi\epsilon_0}\int \frac{\va*{P}(\va*{r}') \vdot \srhat}{\scriptr^2} \dd[3]{\va*{r}'}
+\end{eqnarray} 
+Since the polarization is uniform over a sphere, we can pull the polarization vector out as follows:
+\begin{eqnarray}
+V(\va*{r}) = \frac{1}{4\pi\epsilon_0} \va*{P} \vdot  \int \frac{\srhat}{\scriptr^2} \dd[3]{\va*{r}'}
+\end{eqnarray}
+This integral is something that we have seen before when computing electric fields, so its result will simply be stated
+\begin{eqnarray}
+V(\va*{r}) = \frac{1}{4\pi\epsilon_0} \va*{P} \vdot \frac{4\pi}{3}\rhat \begin{cases}
+R^3/r^2 & r \geq R\\
+r & r \leq R
+\end{cases}
+\end{eqnarray}
+Simplifying, this gives us that
+\begin{eqbox}
+V(\va*{r}) = \frac{P}{3\epsilon_0}\cos{\theta}
+\begin{cases}
+R^3/r^2 & r \geq R\\
+r & r \leq R
+\end{cases}
+\end{eqbox}
+
+\prob{4.16}{Suppose that the field inside a large piece of dielectric is $\va*{E}_0$, so that the electric diplacement is $D_0 = \epsilon_0\va*{E_0} + \va*{P}$. Assume the following cavities are small enough that $\va*{P}$, $\va*{E}_0$, and $\va*{D}_0$ are essentially uniform.}
+
+a) Now a small spherical cavity is hollowed out of the material. Find the field at the center of the cavity in terms of $\va*{E}_0$ and $\va*{P}$. Also find the displacement at the center of the cavity in terms of $\va*{D}_0$ and $\va*{P}$. Assume the polarization is ``frozen in'', so it doesn't change when the cavity is excavated.
+
+We have already calculated the potential inside a uniformly polarized sphere, so to calculate the electric field, we must simply take the negative of its gradient.
+\begin{eqbox}
+\va*{E} = \va*{E}_0 + \qty(-\frac{1}{3\epsilon_0}\qty(-\va*{P})) = \va*{E}_0 + \frac{1}{3\epsilon_0}\va*{P}
+\end{eqbox}
+For the electric displacement, we can observe that a cavity should have no polarization since it is effectively made by inserting an object with a polarization exactly cancelling that of the original dielectric. This tells us that
+\begin{eqbox}
+\va*{D} = \epsilon_0\va*{E} = \epsilon_0\va*{E}_0 + \frac{1}{3}\va*{P} = \va*{D}_0 - \frac{2}{3}\va*{P}
+\end{eqbox}
+
+b) Do the same for a long needle-shaped cavity running parallel to $\va*{P}$.
+
+When a needle-shaped cavity is carved out of the dielectric, the bound charge is placed at the ends, and we will assume that their contribution to the electric field falls off such that it is negligible at the center of the needle, meaning
+\begin{eqbox}
+\va*{E} = \va*{E}_0
+\end{eqbox}
+and 
+\begin{eqbox}
+\va*{D} = \epsilon_0\va*{E} = \va*{D}_0 - \va*{P}
+\end{eqbox}
+
+c) Do the same for a thin wafer-shaped cavity perpendicular to $\va*{P}$. 
+
+For the wafer-shaped cavity, we can essentially treat this as a parallel plate capacitor with a surface charge density $\sigma = -\va*{P} \vdot \vu*{n}$ Since the polarization in the wafer is opposite that in the dielectric, the field should point in the same direction as the polarization vector for the dielectric, meaning
+\begin{eqbox}
+\va*{E} = \va*{E}_0 + \frac{1}{\epsilon_0}\va*{P}
+\end{eqbox}
+Lastly, we see the electric displacement vector is given as
+\begin{eqbox}
+\va*{D} = \va*{D}_0
+\end{eqbox}
+
+\end{document}
