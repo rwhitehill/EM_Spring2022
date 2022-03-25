@@ -1,0 +1,55 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW N}
+\rhead{03/24/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{4.20}{A sphere of linear dielectric material has embedded in it a uniform free charge density $\rho$. Find the potential at the center of the sphere (relative to infinity), if its radius is $R$ and the dielectric constant is $\epsilon_r$.}
+
+We can calculate the electric displacement as follows:
+\begin{align*}
+\oint \va{D} \vdot \dd{\va{a}} = Q_{\rm free} \Rightarrow \va{D} = \begin{cases}
+\frac{\rho}{3}r\rhat & r < R \\
+\frac{\rho R^3}{3r^2}\rhat & r > R
+\end{cases}
+\end{align*}
+It then follows that the potential at the center of the sphere, knowing $\va{E} = \epsilon\va{D}$ is given as
+\begin{eqbox}
+V(0) = -\int_{\infty}^{0} \frac{1}{\epsilon_0\epsilon_r}D \dd{r} = -\frac{\rho}{3\epsilon_0\epsilon_r}\qty[\int_{\infty}^{R} \frac{R^3}{r^2} \dd{r} + \int_{R}^{0} r \dd{r}] = \frac{\rho R^2}{2\epsilon_0\epsilon_r}
+\end{eqbox}
+
+\prob{4.21}{A certain coaxial cable consists of a copper wire, radius a, surrounded by a concentric copper tube of inner radius c (Fig. 4.26). The space between is partially filled (from b out to c) with material of dielectric constant $\epsilon_r$, as shown. Find the capacitance per unit length of this cable.}
+
+We can calculate the capacitance as follows. Suppose that each copper piece has a charge $Q$ on it (where the positive charge is on the inner tube [although this distinction does not make any difference in the capacitance calculation]). Thus, since
+\begin{align*}
+\oint \va{D} \vdot \dd{\va{a}} = Q_{\rm free} \Rightarrow \va{D} = \frac{Q}{2\pi s \ell} \shat
+\end{align*}
+Hence, the potential difference between the plates is found to be
+\begin{align*}
+V = -\int_{b}^{a} \frac{1}{\epsilon}\frac{Q}{2\pi s \ell} \dd{s} = \frac{Q}{2\pi\epsilon\pi \ell}\ln(\frac{b}{a})
+\end{align*}
+This means that the capacitance per unit length
+\begin{eqbox}
+\frac{C}{\ell} = \frac{Q}{V\ell} = \frac{2\pi\epsilon_0\epsilon_r}{\ln(b/a)} = \epsilon_r\frac{C_0}{\ell}
+\end{eqbox}
+which is the expected result.
+
+
+\end{document}
