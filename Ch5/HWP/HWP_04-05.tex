@@ -1,0 +1,81 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW \#}
+\rhead{DATE}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{5.1}{A particle of charge $q$ enters a region of uniform magnetic field $\va{B}$ (pointing \textit{into} the page). The field deflects the particle a distance $d$ above the original line of flight, as shown in Fig. 5.8. Is the charge positive or negative? In terms of $a$, $d$, $B$, and $q$, find the momentum of the particle.}
+
+The magnetic force is given as a cross product of the velocity of a charge and the magnetic field which it is immersed in:
+\begin{align*}
+\va{F} = q\va{v} \cross \va{B}
+\end{align*}
+
+We can determine the sign of the charge on $q$ by seeing if the direction of the force is parallel or anti-parallel to the direction of $\va{v} \cross \va{B}$. Using the right hand rule, we see that the force points up, implying that the charge must be positive.
+
+Now, we know that a charge moving in a constant magnetic field with velocity perpendicular to the field undergoes circular motion:
+\begin{align*}
+\begin{cases}
+x = r\cos(\frac{qB}{m}t) \\
+y = r\sin(\frac{qB}{m}t) - r
+\end{cases}
+\end{align*}
+We can solve for the radius of motion using the point $(d,a)$, giving
+\begin{align*}
+r = \frac{a^2 + d^2}{2d}
+\end{align*}
+Hence, using basic facts about centripetal motion, we have
+\begin{align*}
+F = \frac{mv^2}{r} = qvB \\
+\Rightarrow p = qBr
+\end{align*}
+giving
+\begin{eqbox}
+p = \frac{qB(a^2 + d^2)}{2d}
+\end{eqbox}
+
+\prob{5.5}{A current $I$ flows down a wire of radius $a$.}
+
+a) If it is uniformly distributed over the surface, what is the surface current density $K$?
+
+The length of the strip perpendicular to the flow of current is $2 \pi a$, and since the current is uniform over the surface, then 
+\begin{eqbox}
+K = \frac{I}{2 \pi a}
+\end{eqbox}
+
+b) If it is distrubuted in such a way that the volume current density is inversely proportional to the distance from the axis, what is $J(s)$?
+
+We can write
+\begin{align*}
+J = \frac{k}{s}
+\end{align*}
+
+find $k$ in terms of the total current as follows:
+\begin{align*}
+I = \int \va{J} \vdot \dd{\va{a}} = \int \frac{k}{s} s\dd{\phi}\dd{s} = k (2\pi) a \\
+\Rightarrow k = \frac{I}{2 \pi a}
+\end{align*}
+Hence,
+\begin{eqbox}
+J(s) = \frac{I}{2 \pi a s}
+\end{eqbox}
+
+
+\end{document}
