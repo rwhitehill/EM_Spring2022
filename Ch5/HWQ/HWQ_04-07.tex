@@ -1,0 +1,120 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW Q}
+\rhead{04/07/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{5.8}{}
+
+a) Find the magnetic field at the center of a square loop, which carries a steady current $I$. Let $R$ be the distance from center to side.
+
+The field due to a straight wire at a distance $R$ from the center of the wire is
+\begin{align*}
+B = \frac{\mu_0 I}{2 \pi R}\sin{\theta}
+\end{align*}
+where $\theta$ is the angle subtending the line from the point at which we are evaluating the magnetic field to either of the ends of the wire and the center of the wire.
+For a square, the angle between both ends and the center is $\pi/2$, so the angle between the center of the wire and one of the ends is just half this: $\pi/4$.
+Thus,
+\begin{eqbox}
+B_{\rm tot} = 4B = 4\frac{\mu_0 I}{2 \pi R}\sin(\pi/4) = \frac{\sqrt{2} \mu_0 I}{\pi R}
+\end{eqbox}
+
+b) Find the field at the center of a regular $n$-sided polygon, carrying a steady current $I$. Again, let $R$ be the distance from the center to any side.
+
+We proceed with a logic similar to that of the last problem.
+In this case, the angle subtending both ends of just one side of the $n$-gon is $2\pi/n$, so the angle between the center of the side and one end is $\pi/n$, and multiplying this result by $n$ sides, we have
+\begin{eqbox}
+B = \frac{\mu_0 I}{2 \pi R}n\sin(\pi/n)
+\end{eqbox}
+
+c) Check that you formula reduces to the field at the center of a circular loop, in the limit $n \rightarrow \infty$.
+
+A circle is an $n$-gon where $n \rightarrow \infty$, so we perform a sanity check for our last result by ensuring that in the limit that our $n$-gon becomes a circle we recover the magnetic field of a ring of current at the center of the ring.
+Thus, either by performing an expansion in $n$ of $n\sin(\pi/n)$ and seeing that powers in $1/n$ vanish or by remembering an obscure limit result from calculus we have that 
+\begin{align*}
+\lim_{n \rightarrow \infty} n\sin(\pi/n) = \pi
+\end{align*}
+That gives us that 
+\begin{eqbox}
+B = \frac{\mu_0 I}{2 R}
+\end{eqbox}
+which allows us to preserve our sanity for today.
+
+\prob{5.10}{}
+
+a) Find the force on a square loop placed as shown in Fig. 5.24(a), near an infinite straight wire. Both the loop and the wire carry a steady current $I$.
+
+The force on the square loop can be calculated as
+\begin{align*}
+\va{F} = \int \dd{\va{l}} \cross \va{B}
+\end{align*}
+where $\va{B}$ is the magnetic field produced by the infinite line charge, which is 
+\begin{align*}
+\va{B} = \frac{\mu_0 I}{2 \pi s}
+\end{align*}
+where $s$ is the distance we are away from the wire.
+It is clear from the properties of the cross product that the wires perpendicular to the infinite wire feel no charge on them and that the bottom wire feels a force away from the infinite wire, while the top is pulled towards the infinite wire.
+Since the two contributing wires are parallel to the infinite wire the entire time we can do away with the integral since the current is constant over the length of the wires, giving
+\begin{align*}
+F = \frac{\mu_0 I^2 a}{2 \pi}\qty[ \frac{1}{s} - \frac{1}{s+a} ]
+\end{align*}
+with an upward direction away from the infinite wire.
+
+b) Find the force on the triangular loop in Fig. 5.24(b)
+
+This one is not quite so nice. 
+The two wires on top are at angles with the infinite wire, so their contribution is not zero and not as nice as a wire parallel to the infinite wire.
+I am tempted to say that this problem is left as an exercise for the reader, but alas, I am in fact the reader.
+One fact about this problem is that we should expect that the net force is up by symmetry.
+
+We can split the integral over each wire.
+The bottom one is easy, as it is just the same as the bottom wire in the previous problem:
+\begin{align*}
+F_{\rm bottom} = \frac{\mu_0 I^2 a}{2 \pi s}
+\end{align*}
+
+Now we can handle the left wire.
+It is at a $60^{\circ}$ angle with the infinite wire, so $\dd{\va{l}} = \qty(\frac{1}{2}\xhat + \frac{\sqrt{3}}{2}\yhat)\dd{l}$ (defining $\xhat$ to be in the direction of current in the infinite wire and $\yhat$ to be perpendicular to the infinite wire pointing upwards), and the distance from the infinite wire is $s + \frac{\sqrt{3}}{2}l$, so we are left with
+\begin{align*}
+\va{F} &= I\int_{0}^{a} \qty(\frac{1}{2}\xhat + \frac{\sqrt{3}}{2}\yhat) \cross \frac{\mu_0 I}{2 \pi \qty(s + \sqrt{3} l/2)}\zhat \dd{l} \\
+&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s + \frac{\sqrt{3} l}{2}} \\
+&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\frac{2}{\sqrt{3}}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1] \\
+&= \frac{\mu_0 I}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(\xhat - \frac{1}{\sqrt{3}}\yhat)
+\end{align*}
+Next, we handle the right wire. This one we consider the start at the top of the triangle, which is at an angle of $30^{\circ}$ with the perpendicular.
+We have $\dd{\va{l}} = \qty(\frac{1}{2}\xhat - \frac{\sqrt{3}}{2}\yhat)\dd{l}$, and the distance from the perpendicular is $s + a - \frac{\sqrt{3}}{2}l$.
+This gives
+\begin{align*}
+\va{F} &= I\int_{0}^{a} \qty(\frac{1}{2}\xhat - \frac{\sqrt{3}}{2}\yhat) \cross \frac{\mu_0 I}{2 \pi \qty(s + a - \sqrt{3} l/2)}\zhat \dd{l} \\
+&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat - \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s - \frac{\sqrt{3} (l-a)}{2}} \\
+&= \frac{\mu_0 I}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(- \xhat - \frac{1}{\sqrt{3}}\yhat )
+\end{align*}
+If we add up the forces on the two upper sides of the triangle, we find that
+\begin{align*}
+\va{F}_{\rm upper} = - \frac{\mu_0 I}{\sqrt{3} \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1] \yhat
+\end{align*}
+Finally, we arrive at our final destination:
+\begin{eqbox}
+F = F_{\rm bottom} + F_{\rm upper} = \frac{\mu_0 I}{\pi}\qty[ \frac{I a}{2 s} - \frac{1}{\sqrt{3}}\ln\qty(\frac{\sqrt{3} a}{2 s} + 1) ]
+\end{eqbox}
+Again, this is in the $\yhat$ direction, which is upward (as expected).
+
+
+\end{document}
