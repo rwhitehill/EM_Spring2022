@@ -94,17 +94,17 @@ Now we can handle the left wire.
 It is at a $60^{\circ}$ angle with the infinite wire, so $\dd{\va{l}} = \qty(\frac{1}{2}\xhat + \frac{\sqrt{3}}{2}\yhat)\dd{l}$ (defining $\xhat$ to be in the direction of current in the infinite wire and $\yhat$ to be perpendicular to the infinite wire pointing upwards), and the distance from the infinite wire is $s + \frac{\sqrt{3}}{2}l$, so we are left with
 \begin{align*}
 \va{F} &= I\int_{0}^{a} \qty(\frac{1}{2}\xhat + \frac{\sqrt{3}}{2}\yhat) \cross \frac{\mu_0 I}{2 \pi \qty(s + \sqrt{3} l/2)}\zhat \dd{l} \\
-&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s + \frac{\sqrt{3} l}{2}} \\
-&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\frac{2}{\sqrt{3}}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1] \\
-&= \frac{\mu_0 I}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(\xhat - \frac{1}{\sqrt{3}}\yhat)
+&= \frac{\mu_0 I^2}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s + \frac{\sqrt{3} l}{2}} \\
+&= \frac{\mu_0 I^2}{2 \pi}\qty(-\frac{1}{2}\yhat + \frac{\sqrt{3}}{2}\xhat)\frac{2}{\sqrt{3}}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1] \\
+&= \frac{\mu_0 I^2}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(\xhat - \frac{1}{\sqrt{3}}\yhat)
 \end{align*}
 Next, we handle the right wire. This one we consider the start at the top of the triangle, which is at an angle of $30^{\circ}$ with the perpendicular.
 We have $\dd{\va{l}} = \qty(\frac{1}{2}\xhat - \frac{\sqrt{3}}{2}\yhat)\dd{l}$, and the distance from the perpendicular is $s + a - \frac{\sqrt{3}}{2}l$.
 This gives
 \begin{align*}
 \va{F} &= I\int_{0}^{a} \qty(\frac{1}{2}\xhat - \frac{\sqrt{3}}{2}\yhat) \cross \frac{\mu_0 I}{2 \pi \qty(s + a - \sqrt{3} l/2)}\zhat \dd{l} \\
-&= \frac{\mu_0 I}{2 \pi}\qty(-\frac{1}{2}\yhat - \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s - \frac{\sqrt{3} (l-a)}{2}} \\
-&= \frac{\mu_0 I}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(- \xhat - \frac{1}{\sqrt{3}}\yhat )
+&= \frac{\mu_0 I^2}{2 \pi}\qty(-\frac{1}{2}\yhat - \frac{\sqrt{3}}{2}\xhat)\int_{0}^{a} \frac{\dd{l}}{s - \frac{\sqrt{3} (l-a)}{2}} \\
+&= \frac{\mu_0 I^2}{2 \pi}\ln\qty[\frac{\sqrt{3} a}{2 s} + 1]\qty(- \xhat - \frac{1}{\sqrt{3}}\yhat )
 \end{align*}
 If we add up the forces on the two upper sides of the triangle, we find that
 \begin{align*}
@@ -112,7 +112,7 @@ If we add up the forces on the two upper sides of the triangle, we find that
 \end{align*}
 Finally, we arrive at our final destination:
 \begin{eqbox}
-F = F_{\rm bottom} + F_{\rm upper} = \frac{\mu_0 I}{\pi}\qty[ \frac{I a}{2 s} - \frac{1}{\sqrt{3}}\ln\qty(\frac{\sqrt{3} a}{2 s} + 1) ]
+F = F_{\rm bottom} + F_{\rm upper} = \frac{\mu_0 I^2}{\pi}\qty[ \frac{a}{2 s} - \frac{1}{\sqrt{3}}\ln\qty(\frac{\sqrt{3} a}{2 s} + 1) ]
 \end{eqbox}
 Again, this is in the $\yhat$ direction, which is upward (as expected).
 
