@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW S}
+\rhead{04/14/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{5.23}{Find the magnetic vector potential of a finite segment of straight wire carrying a current $I$. Check that your answer is consistent with Eq. 5.37.}
+
+Let us orient our coordinate sysytem such that the point at which we are evaluating the vector potential lies in the $xy$-plane.
+Thus, we have
+\begin{align*}
+    \va{A} &= \frac{\mu_0 I}{4 \pi} \int \frac{\dd{z}}{\scriptr} \zhat \\
+           &= \frac{\mu_0 I}{4 \pi} \zhat \int_{z_1}^{z_2} \frac{dz}{\sqrt{r^2 + z^2 - 2rz\cos{\theta}}} \\
+           &= \frac{\mu_0 I}{4 \pi}\ln\left[ \frac{\sqrt{s^2 + z_2^2} + z_2}{\sqrt{s^2 + z_1^2} + z_1} \right] \vu{z}
+.\end{align*}
+
+Now, we check if this is consistent with the known magnetic field for a finite length wire.
+Taking the curl of the vector potential, we get
+\begin{align*}
+    \va{B} &= \grad \cross \va{A} = -\frac{\mu_0 I}{4 \pi} \phihat \pdv{s} \ln\left[ \frac{\sqrt{s^2 + z_2^2} + z_2}{\sqrt{s^2 + z_1^2} + z_1} \right] \\
+           &= -\frac{\mu_0 I}{4 \pi}\left[ \frac{s}{\sqrt{s^2 + s_2^2}\left( \sqrt{s^2 + z_2^2} \right) + z_2} - \frac{s}{\sqrt{s^2 + z_1^2}\left( \sqrt{s^2 + z_1^2} + z_1 \right)} \right] \phihat
+.\end{align*}
+
+We simplify this by noting that 
+\begin{align*}
+    z &= \sqrt{s^2 + z^2}\sin{\theta} \\
+    \frac{s}{\sqrt{s^2 + z^2} + z} &= \frac{\sqrt{s^2 + z^2} - z}{s}
+.\end{align*}
+
+Simplifying, we have
+\begin{align*}
+    \va{B} &= -\frac{\mu_0 I}{4 \pi s}\left[ \frac{\sqrt{s^2 + z_2^2} - z_2}{\sqrt{s^2 + z_2^2}}  - \frac{\sqrt{s^2 + z_1^2} - z_1}{\sqrt{s^2 + z_1^2}} \right] \phihat \\
+           &= -\frac{\mu_0 I}{4 \pi s} \left[ 1 - \sin{\theta_2} - \left( 1 - \sin{\theta_2} \right)\right] \\
+           &= \frac{\mu_0 I}{4 \pi s}\left[ \sin{\theta_2} - \sin{\theta_1} \right]
+,\end{align*}
+which is exactly what we expect to get.
+
+\prob{5.35}{A circular loop of wire, with radius $R$, lies in the $xy$ plane (centered at the origin) and carries a current $I$ running counterlockwise as viewed from the positive $z$ axis.}
+
+a) What is its magnetic dipole moment? 
+
+The magnetic dipole moment of the current loop is just 
+\begin{align*}
+    \va{m} = I \va{A} = \pi R^2 I \vu{z}
+\end{align*}
+
+b) What is the (approximate) magnetic field at points far from the origin?
+
+Far way from the origin (i.e. $r \gg R$) the dipole term in the multipole expansion dominates, so
+\begin{align*}
+    \va{B} \approx \va{B}_{\rm dip}\left( \va{r} \right) = \frac{\mu_0 I}{4}\left[ 2 \cos{\theta} \vu{r} + \sin{\theta} \thhat \right]
+.\end{align*}
+
+c) Show that, for points on the $z$ axis, your answer is consistent with the \textit{exact} field, when $z \gg R$.
+
+Finally, it can be seen that above the wire on the axis passing through its center, when we are far from the wire, that
+\begin{align*}
+    \va{B} \approx \frac{\mu_0 I}{2} \frac{R^2}{z^3}
+,\end{align*}
+and the dipole term gives us ($\theta = 0$):
+\begin{align*}
+\va{B}_{\rm dip} = \frac{\mu_0 I R^2}{2 z^3}
+.\end{align*}
+
+
+
+\end{document}
