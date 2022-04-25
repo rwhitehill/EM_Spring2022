@@ -21,18 +21,59 @@
 
 \begin{document}
 
-\prob{6.1}{Calculate the torque exerted on the square loop shown in Fig. 6.6 due to the circular loop (assume $r$ is much larger then $a$ or $b$). If the square loop is free to rotate, what will its quilibrium orientation be?}
+\prob{6.1}{Calculate the torque exerted on the square loop shown in Fig. 6.6 due to the circular loop (assume $r$ is much larger then $a$ or $b$). If the square loop is free to rotate, what will its equilibrium orientation be?}
 
+Since both $a,b \ll r$, we can approximate both current configurations as magnetic dipoles.
+That is, 
+\begin{align*}
+    \va{N} &= \va{m}_{\rm square} \cross \va{B}_{\rm circle} \\
+    &= \frac{\mu_0}{4 \pi} \frac{1}{r^3} \va{m}_{\rm circle} \cross \va{m}_{\rm square} 
+.\end{align*}
 
+Observing that $m_{\rm circle} = I\left( \pi a^2 \right)$ and $m_{\rm square} = I b^2$, then we have
+\begin{eqbox}
+    \va{N} = \frac{\mu_0}{4} \frac{1}{r^3}(Iab)^2 \zhat
+\end{eqbox}
+
+Note that the coordinates are defined such that the $x$ axis points to the right, and the $y$ axis points up.
+
+We can see that there will be no torque on the square loop by the circular loop if their dipole moments are aligned or antialigned, meaning they will be in equilibrium.
 
 \prob{6.5}{A uniform current density $\va{J} = J_0 \zhat$ fills a slab straddling the $yz$ plane, from $x = -a$ to $x = +a$.
 A magnetic dipole $\va{m} = m_0 \xhat$ is situated at the origin.}
 
 a) Find the force on the dipole, using Eq. 6.3.
 
+We can find the magnetic field simply from Ampere's law and a few symmetry arguments:
+\begin{align*}
+    \va{B} = -\mu_0 J_0 x \yhat
+.\end{align*}
+
+Thus, if $\va{m} = m_0 \xhat$ we have that $\va{m} \vdot \va{B} = 0$, so the resulting magnetic force is identically zero.
+
 b) Do the same for a dipole pointing in the $y$ direction: $\va{m} = m_0 \\hat{y}$.
+
+For this problem, we have that $\va{m} \vdot \va{B} = -m_0 \mu_0 J_0 x$, so the magnetic force is
+\begin{eqbox}
+    \va{F} = \grad{\left( \va{m} \cross \va{B} \right)} = -m_0 \mu_0 J_0 \xhat
+.\end{eqbox}
 
 c) In the \textit{electrostatic} case, the expressions $\va{F} = \grad \left( \va{p} \vdot \va{E} \right)$ and $\va{F} = \left( \va{p} \vdot \grad \right) \va{E}$ are equivalent (prove it), but this is \textit{not} the case for the magnetic analogs (explain why).
 As an example, calculate $\left( \va{m} \vdot \grad \right) \va{B}$ for the configurations in (a) and (b).
+
+If we calculate $\left( \va{m} \vdot \grad \right) \va{B}$, then we get a nonzero force in part (a) but an identically zero force in part (b), which does not match.
+
+It can be seen that the second method is not equivalent to the first since the curl of $\va{B}$ is not generally zero:
+\begin{align*}
+    \grad{\left( \va{m} \vdot \va{B} \right)} &= \va{m} \cross \left( \grad \cross \va{B} \right) + \va{B} \cross \left( \grad \cross \va{m} \right) + \left( \va{m} \vdot \grad \right) \va{B} + \left( \va{B} \vdot \grad \right) \va{m} \\
+    &= \va{m} \cross \left( \grad \cross \va{B}\right) + \left( \va{m} \vdot \grad \right) \va{B}
+.\end{align*}
+since the magnetic dipole does not vary with space.
+
+Note that here, if we switch the electric analogues for the magnetic ones, we know that this reduces to $\left( \va{p} \vdot \grad \right) \va{E}$ in the electrostatic case since $\grad \cross \va{E} = 0$ always.
+In this case, though, we have that $\grad \cross \va{B} = \mu_0 \va{J}$, so this actually becomes,
+\begin{eqbox}
+    \va{F} = \mu_0 \va{m} \cross \va{J} + \left( \va{m} \vdot \grad \right) \va{B}
+.\end{eqbox}
 
 \end{document}
