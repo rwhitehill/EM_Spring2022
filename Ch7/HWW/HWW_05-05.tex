@@ -1,0 +1,95 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW W}
+\rhead{05/05/22}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{7.4}{
+Suppose the conductivity of the material separating the cylinders in Ex. 7.2 is not uniform; specifically, $\sigma(s) = k/s$, for some constant $k$.
+Find the resistance between the cylinders.
+}
+
+\begin{figure}[H]
+   \begin{center}
+       \def\svgwidth{0.5\linewidth} 
+       \input{./prob7-4.pdf_tex}
+   \end{center} 
+\end{figure}
+
+We note that the current moving from the inside cylinder to the outside cylinder is just 
+\begin{align*}
+    I = J(s)\left( 2 \pi s L \right)
+.\end{align*}
+Thus, by Ohm's Law
+\begin{align*}
+    \va{J} = \sigma \va{E} \Rightarrow \va{E} = \frac{I}{2 \pi k L}
+.\end{align*}
+Hence, the potential difference between the cylinders is 
+\begin{align*}
+   V = - \int_{b}^{a} \frac{I}{2 \pi k L} \dd{s} = \frac{I}{2 \pi k L}\left( b - a \right). 
+.\end{align*}
+This gives that 
+\begin{eqbox}
+    R = \frac{V}{I} = \frac{b-a}{2 \pi k L}
+.\end{eqbox}
+
+\newpage
+
+\prob{7.8}{
+A square loop of wire (side $a$) lies on a table, a distance $s$ from a very long straight wire, which carries a current $I$, as shown in Fig. 7.18.
+}
+
+\begin{figure}[H]
+   \begin{center}
+       \def\svgwidth{\linewidth} 
+       \input{./prob7-8.pdf_tex}
+   \end{center} 
+\end{figure}
+
+a) Find the flux of $\va{B}$ through the loop.
+
+The flux is simply
+\begin{align*}
+    \Phi = \int \va{B} \vdot \dd{\va{a}} = \int \frac{\mu_0 I}{2 \pi s} \dd{s} \dd{z} = a \int_{s}^{s+a} \frac{\mu_0 I}{2 \pi s'} \dd{s'}
+,\end{align*}
+where we have exchanged $s \rightarrow s'$ inside the integral as a dummy variable.
+The integration leaves us with
+\begin{eqbox}
+    \Phi = \frac{\mu_0 I a}{2 \pi} \ln\left( \frac{s + a}{s} \right)
+.\end{eqbox}
+
+b) If someone now pulls the loop directly away from the wire, at speed $v$, what emf is generated?
+In what direction (clockwise or counterclockwise) does the current flow?
+
+If we pull the loop away perpendicular to the straight wire at a speed $v$, then $\dv{s}{t} = v$, giving us that 
+\begin{eqbox}
+    \mathcal{E} = -\dv{\Phi}{t} = \frac{\mu_0 I a}{2 \pi} v \left[ \frac{1}{s + a} - \frac{1}{s} \right] = \frac{\mu_0 I a^2 v}{2 \pi s (s + a)}
+.\end{eqbox}
+
+Note that the induced current in the loop is counter-clockwise.
+This is because as the loop moves further from the wire, the flux decreases, meaning that the loop must produce a magnetic field pointing out of the page, and by the right-hand rule, this gives us a counterclockwise current.
+
+c) What if the loop is pulled to the $right$ at speed $v$?
+
+This setup is translationally invariant parallel to the straight wire.
+That is, the magnetic flux does not change when the loop is moved parallel to the wire.
+We can then quickly conclude that the emf is identically zero in this case.
+
+\end{document}

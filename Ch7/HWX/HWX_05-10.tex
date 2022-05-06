@@ -1,0 +1,133 @@
+\documentclass[12pt,a4paper]{article}
+
+\input{../../preamble_files/packages}
+\input{../../preamble_files/scriptr}
+\input{../../preamble_files/siunits}
+\input{../../preamble_files/vectors}
+\input{../../preamble_files/figures}
+\input{../../preamble_files/references}
+\input{../../preamble_files/empheq}
+
+\pagestyle{fancy}
+\lhead{Richard Whitehill}
+\chead{PHYS 631 -- HW X}
+\rhead{DATE}
+\cfoot{\thepage \hspace{1pt} of \pageref{LastPage}}
+
+\newcommand{\prob}[2]{\textbf{#1)} #2}
+
+\setlength{\parskip}{\baselineskip}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\prob{7.28}{
+Find the energy stored in a section of length $l$ of a long solenoid (radius $R$, current $I$, $n$ turns per unit length),
+}
+
+a) using Eq. 7.30
+
+We have
+\begin{eqbox}
+    W = \frac{1}{2} L I^2 = \frac{1}{2} \mu_0 n^2 \pi R^2 l I^2 
+.\end{eqbox}
+where the inductance of the solenoid is 
+\begin{align*}
+    L = \mu_0 n^2 \pi R^2 l
+.\end{align*}
+
+b) using Eq. 7.31
+
+Eq. 7.31 says that 
+\begin{align*}
+    W = \frac{1}{2} \oint \left( \va{A} \vdot \va{I} \right) \dd{l} 
+.\end{align*}
+The vector potential of a solenoid is 
+\begin{align*}
+    \va{A} = \frac{\mu_0 n I}{2} \frac{R^2}{s} \phihat
+.\end{align*}
+For the integral, we evaluate this at $s = R$, giving
+\begin{eqbox}
+    W = \frac{1}{2} \left( \frac{\mu_0 n I R}{2} \right) \left( 2 \pi R \right) = \frac{1}{2} \mu_0 n^2 \pi R^2 l I^2
+.\end{eqbox}
+
+c) using Eq. 7.35
+
+Another method gives
+\begin{eqbox}
+    W = \frac{1}{2 \mu_0} \int B^2 \dd[3]{\va{r}} = \frac{1}{2 \mu_0}\left( \mu_0 n I \right)^2 \int \dd[3]{\va{r}} = \frac{1}{2} \mu_0 n^2 \pi R^2 l I^2
+.\end{eqbox}
+Notice that the magnetic field vanishes outside the solendoid, so we only have to compute the integral over the volume of the piece of solenoid.
+
+d) using Eq. 7.34
+
+Finally, we have
+\begin{align*}
+    W = \frac{1}{2 \mu_0}\left[ \int_{\mathcal{V}} B^2 \dd[3]{\va{r}} - \oint_{\mathcal{S}} \left( \va{A} \cross \va{B} \right) \vdot \dd{\va{a}} \right]
+.\end{align*}
+Notice that $\va{A} = A \phihat$ and $\va{B} = B \zhat$, and $(\phihat \cross \zhat) \vdot \shat = 0$, so the second integral gives zero, which is expected since the first integral is exactly that evaluated in part (c).
+
+\prob{7.44}{
+    In a \textbf{perfect conductor}, the conductivity is infinite, so $\va{E} = 0$, and any net charge resides on the surface (just as it does for an \textit{im}perfect conductor, in electro\textit{statics}).
+}
+
+a) Show that the magnetic field is constant ($\partial \va{B} / \partial t = 0$), inside a perfect conductor.
+
+From Maxwell, we have
+\begin{align*}
+    \curl{E} = \pdv{\va{B}}{t}
+.\end{align*}
+Since, $E \equiv 0$ in the conductor, it follows that
+\begin{eqbox}
+    \pdv{\va{B}}{t} = 0
+\end{eqbox}
+inside the conductor as well.
+
+b) Show that the magnetic flux through a perfectly conducting loop is constant.
+
+If we have a perfectly conducting loop, then the magnetic field is constant inside, meaning that 
+\begin{eqbox}
+    \mathcal{E} = -\pdv{\va{B}}{t} = 0
+.\end{eqbox}
+
+A \textbf{superconductor} is a perfect conductor with the additional property that the (constant) $\va{B}$ inside is in fact \textit{zero}.
+
+c) Show that the current in a superconductor is confined to the surface.
+
+Another one of Maxwell's equations tells us that 
+\begin{align*}
+    \curl{B} = \mu_0 \va{J} + \epsilon_0 \mu_0 \pdv{\va{E}}{t}
+.\end{align*}
+Since inside the superconductor $\va{B} \equiv 0$ and $\va{E} \equiv 0$, then we have
+\begin{eqbox}
+    \va{J} = 0
+,\end{eqbox}
+inside the conductor.
+This leaves only the possibility of current being contained to the surface of the superconductor since it is not necessarily true that $\va{B}$ has no curl at the surface or that the electric field at the surface of the superconductor does not vary with time.
+
+d) Superconductivity is lost above a certain critical temperature ($T_{c}$), which varies from one material to the other.
+Suppose you had a sphere (radius $a$) above its critical temperature, and you held it in a uniform magnetic field $B_0 \zhat$ while cooling it below $T_{c}$.
+Find the induced surface current density $\va{K}$, as a function of the polar angle $\theta$.
+
+When the superconductor comes below its critical temperature, the magnetic field inside must be zero.
+This can only come from a current restricted to its surface.
+Since we have solved a problem where the current is from a rotating surface charge, we can immediately write down the magnetic field produced from this surface current:
+\begin{align*}
+    \va{B} = \frac{2}{3} \mu_0 \sigma a \va{\omega}
+.\end{align*}
+Since we want the internal magnetic field to vanish, we must have
+\begin{align*}
+    \va{B} - B_0 \zhat = 0 \Rightarrow \sigma \omega a = -\frac{2 B_0}{3 \mu_0}
+.\end{align*}
+For a surface density rotating, we know
+\begin{align*}
+    \va{K} = \sigma \va{v} = \sigma \va{\omega} \cross \va{r} = \sigma \va{\omega} \va{r} \sin{\theta} \phihat
+.\end{align*}
+Substituting the result above, we have
+\begin{eqbox}
+    \va{K} = -\frac{2 B_0}{3 \mu_0} \sin{\theta} \phihat
+.\end{eqbox}
+
+
+
+\end{document}
